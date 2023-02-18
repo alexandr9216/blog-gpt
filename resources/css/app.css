@@ -1,0 +1,13 @@
+table.post td.btn-trash,
+table.post td.btn-edit,
+table.post th.btn-trash,
+table.post th.btn-edit {
+    text-align: center;
+}
+
+table.post td.btn-edit a {
+    color: #fd9d0d;
+}
+table.post td.btn-trash a {
+    color: #fd440d;
+}

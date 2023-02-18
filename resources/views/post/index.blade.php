@@ -3,13 +3,14 @@
 @section('title', 'Страница постов')
 
 @section('content')
-    <table class="table">
+    <table class="table post">
         <thead>
         <tr>
             <th scope="col">id</th>
             <th scope="col">Название</th>
             <th scope="col">Родильская категория</th>
-            <th scope="col">Удалить</th>
+            <th class="btn-edit" scope="col">Редактировать</th>
+            <th class="btn-trash" scope="col">Удалить</th>
         </tr>
         </thead>
         <tbody>
@@ -24,13 +25,14 @@
                         <a href="{{route('category.edit', $post->category)}}">{{$post->category->title}}</a>
                     @endif
                 </td>
-                <td>
+                <td class="btn-edit"><a href="{{route('post.edit', $post)}}"><i class="bi bi-pencil-square"></i></a></td>
+                <td class="btn-trash">
                     <a href="#"
                        onclick="event.preventDefault();
                             if (confirm('Вы действительно хотите удалить этот пост?')) {
                                 document.getElementById('delete-form-{{ $post->id }}').submit();
                             }">
-                        Удалить
+                        <i class="bi bi-x-circle-fill"></i>
                     </a>
 
                     <form id="delete-form-{{ $post->id }}" action="{{ route('post.destroy', $post) }}"
